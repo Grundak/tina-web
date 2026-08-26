@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { GalleryGrid } from "@/components/GalleryGrid";
 import { galleryItems } from "@/data/gallery";
 
@@ -13,6 +14,11 @@ export default function GalleryPage() {
       <p className="lead">
         Four curated gallery moments with confident styling, dark texture, and polished adult tone.
       </p>
+      <div className="buttonRow">
+        <Link className="button buttonPrimary" href="/links">
+          Official links
+        </Link>
+      </div>
       <GalleryGrid items={galleryItems} />
     </section>
   );
