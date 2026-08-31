@@ -1,5 +1,25 @@
 /* eslint-disable @next/next/no-img-element -- Public proof-of-concept images are intentionally data/static asset driven. */
+import type { Metadata } from "next";
 import Link from "next/link";
+import { HomeBackgroundVideo } from "@/components/HomeBackgroundVideo";
+import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/siteMetadata";
+
+export const metadata: Metadata = {
+  title: "Official Portfolio",
+  description: SITE_DESCRIPTION,
+  alternates: {
+    canonical: "/"
+  },
+  openGraph: {
+    title: SITE_NAME + " | Official Portfolio",
+    description: SITE_DESCRIPTION,
+    url: "/"
+  },
+  twitter: {
+    title: SITE_NAME + " | Official Portfolio",
+    description: SITE_DESCRIPTION
+  }
+};
 
 export default function HomePage() {
   return (
@@ -8,6 +28,7 @@ export default function HomePage() {
         <div className="heroMystery" aria-hidden="true">
           <img src="/images/tina/tina-bg-mystery.webp" alt="" />
         </div>
+        <HomeBackgroundVideo />
         <div className="heroChair" aria-hidden="true">
           <img src="/images/tina/tina-red-chair.webp" alt="" />
         </div>

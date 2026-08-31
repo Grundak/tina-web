@@ -1,0 +1,27 @@
+{
+  "name": "Tina Model Official",
+  "short_name": "Tina",
+  "description": "The official Tina Model portfolio with gallery previews and verified Fansly links.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#080708",
+  "theme_color": "#080708",
+  "icons": [
+    {
+      "src": "/icon-clean-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-clean-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon-clean.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

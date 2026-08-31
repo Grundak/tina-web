@@ -1,5 +1,16 @@
-export const metadata = {
-  title: "Cookies | Tina"
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Cookie Information",
+  description: "Cookie and browser storage information for Tina Model Official.",
+  alternates: {
+    canonical: "/cookies"
+  },
+  openGraph: {
+    title: "Cookie Information | Tina Model Official",
+    description: "Cookie and browser storage information for Tina Model Official.",
+    url: "/cookies"
+  }
 };
 
 const cookieNotes = [

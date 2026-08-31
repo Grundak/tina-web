@@ -1,5 +1,5 @@
 export type SocialLink = {
-  id: "onlyfans" | "fansly";
+  id: "fansly";
   label: string;
   href: string;
   description: string;
@@ -8,18 +8,10 @@ export type SocialLink = {
 
 export const socialLinks: SocialLink[] = [
   {
-    id: "onlyfans",
-    label: "OnlyFans",
-    href: "",
-    description: "Official OnlyFans link. Add the final URL in src/data/socialLinks.ts.",
-    icon: "OF"
-  },
-  {
     id: "fansly",
     label: "Fansly",
-    href: "",
-    description: "Official Fansly link. Add the final URL in src/data/socialLinks.ts.",
+    href: "https://fansly.com/Tynamodelxxx/posts",
+    description: "Official Fansly posts from Tina.",
     icon: "F"
   }
 ];
-

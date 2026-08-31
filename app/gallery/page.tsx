@@ -1,9 +1,26 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { GalleryGrid } from "@/components/GalleryGrid";
 import { galleryItems } from "@/data/gallery";
 
-export const metadata = {
-  title: "Gallery | Tina"
+const galleryDescription =
+  "Explore Tina Model Official gallery previews with cinematic leather styling and a polished adult portfolio tone.";
+
+export const metadata: Metadata = {
+  title: "Gallery",
+  description: galleryDescription,
+  alternates: {
+    canonical: "/gallery"
+  },
+  openGraph: {
+    title: "Gallery | Tina Model Official",
+    description: galleryDescription,
+    url: "/gallery"
+  },
+  twitter: {
+    title: "Gallery | Tina Model Official",
+    description: galleryDescription
+  }
 };
 
 export default function GalleryPage() {
@@ -23,4 +40,3 @@ export default function GalleryPage() {
     </section>
   );
 }
-

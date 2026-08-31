@@ -660,6 +660,10 @@ main {
 }
 
 @media (max-width: 860px) {
+  .heroBackgroundVideo {
+    display: none;
+  }
+
   .hero::before {
     inset: auto 16px 36px;
     width: auto;
@@ -782,6 +786,37 @@ main {
   pointer-events: none;
   text-transform: uppercase;
   z-index: -1;
+}
+
+
+
+.heroBackgroundVideo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.heroBackgroundVideo::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(8, 7, 8, 0.88), rgba(8, 7, 8, 0.62) 52%, rgba(8, 7, 8, 0.82)),
+    linear-gradient(0deg, rgba(8, 7, 8, 0.84), rgba(8, 7, 8, 0.22) 44%, rgba(8, 7, 8, 0.78)),
+    radial-gradient(circle at 74% 38%, rgba(123, 17, 27, 0.2), transparent 28rem);
+}
+
+.heroBackgroundVideo video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0.43;
+  filter: brightness(0.58) saturate(0.74) contrast(1.08) blur(0.35px);
+  transform: scale(1.04);
 }
 
 .heroMystery {
@@ -1001,7 +1036,8 @@ main {
     transition-duration: 1ms !important;
   }
 
-  .pageLoader {
+  .pageLoader,
+  .heroBackgroundVideo {
     display: none;
   }
 }
