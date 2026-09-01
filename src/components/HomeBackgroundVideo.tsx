@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { shouldLoadHomeBackgroundVideo } from "@/lib/homeBackgroundVideo";
 
 const HOME_BACKGROUND_VIDEO_SRC = "/videos/tina-home-background.mp4";
-const WIDE_VIEWPORT_QUERY = "(min-width: 861px)";
 const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 
 type NavigatorWithConnection = Navigator & {
@@ -17,7 +16,6 @@ export function HomeBackgroundVideo() {
   const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
-    const viewportQuery = window.matchMedia(WIDE_VIEWPORT_QUERY);
     const motionQuery = window.matchMedia(REDUCED_MOTION_QUERY);
     let timeoutId: number | undefined;
 
@@ -26,7 +24,6 @@ export function HomeBackgroundVideo() {
 
       setShouldLoad(
         shouldLoadHomeBackgroundVideo({
-          isWideViewport: viewportQuery.matches,
           prefersReducedMotion: motionQuery.matches,
           saveData: navigatorWithConnection.connection?.saveData ?? false
         })
@@ -43,7 +40,6 @@ export function HomeBackgroundVideo() {
       window.addEventListener("load", scheduleLoadCheck, { once: true });
     }
 
-    viewportQuery.addEventListener("change", evaluate);
     motionQuery.addEventListener("change", evaluate);
 
     return () => {
@@ -52,7 +48,6 @@ export function HomeBackgroundVideo() {
       }
 
       window.removeEventListener("load", scheduleLoadCheck);
-      viewportQuery.removeEventListener("change", evaluate);
       motionQuery.removeEventListener("change", evaluate);
     };
   }, []);

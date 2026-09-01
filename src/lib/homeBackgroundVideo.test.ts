@@ -2,26 +2,28 @@ import { describe, expect, it } from "vitest";
 import { shouldLoadHomeBackgroundVideo } from "./homeBackgroundVideo";
 
 describe("home background video loading", () => {
-  it("loads only when the viewport is wide and motion/data preferences allow it", () => {
+  it("loads when motion and data preferences allow it", () => {
     expect(
       shouldLoadHomeBackgroundVideo({
-        isWideViewport: true,
         prefersReducedMotion: false,
         saveData: false
       })
     ).toBe(true);
+  });
 
+  it("does not block loading on narrow mobile viewports", () => {
     expect(
       shouldLoadHomeBackgroundVideo({
         isWideViewport: false,
         prefersReducedMotion: false,
         saveData: false
       })
-    ).toBe(false);
+    ).toBe(true);
+  });
 
+  it("respects reduced motion and data saver preferences", () => {
     expect(
       shouldLoadHomeBackgroundVideo({
-        isWideViewport: true,
         prefersReducedMotion: true,
         saveData: false
       })
@@ -29,7 +31,6 @@ describe("home background video loading", () => {
 
     expect(
       shouldLoadHomeBackgroundVideo({
-        isWideViewport: true,
         prefersReducedMotion: false,
         saveData: true
       })
